@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Utilidades {
+    // Formata uma data LocalDate para o padrão dd/MM/yyyy
     public static String formatarData(LocalDate data) {
         return data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
+    // Exibe o menu principal e a lista de tarefas
     public static String imprimirMenuPrincipal(String nome_usuario, ArrayList<Tarefa> lista, boolean filtro, Scanner input) {
         System.out.println();
         System.out.println("MENU PRINCIPAL");
@@ -24,6 +26,7 @@ public class Utilidades {
             }
         }
 
+        // Cabeçalho da tabela
         else {
             System.out.printf("%-4s %-15s %-15s %-15s %-15s %-10s%n",
                     "Nº", "Título", "Descrição", "Data Criação", "Data Limite", "Status");
@@ -42,6 +45,7 @@ public class Utilidades {
             }
         }
 
+        // Opções do menu
         System.out.println("-------------------------------------------------------------------------------\n");
         System.out.println("O que deseja fazer?");
         System.out.println("[1] Criar uma tarefa");
@@ -62,6 +66,7 @@ public class Utilidades {
         return input.next();
     }
 
+    // Exibe o menu de (modificar ou filtrar)
     public static String imprimirMenuSelecao (Scanner input, String tipo) {
         System.out.println("[1] Título");
         System.out.println("[2] Descrição");
@@ -82,6 +87,7 @@ public class Utilidades {
         return input.next();
     }
 
+    // Verifica uma string é uma data válida
     public static boolean isDate(String data) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -94,6 +100,7 @@ public class Utilidades {
         }
     }
 
+    // Exibe menu de seleção de status
     public static String imprimirMenuSelecao_status(Scanner input) {
         System.out.println("[1] Concluído");
         System.out.println("[2] Pendente");
@@ -103,6 +110,7 @@ public class Utilidades {
         return input.nextLine();
     }
 
+    // Verifica se uma string pode ser convertida para inteiro
     public static boolean isInt(String numero) {
         try {
             Integer.parseInt(numero);
@@ -112,6 +120,7 @@ public class Utilidades {
         }
     }
 
+    // Converte uma string no formato dd/MM/yyyy para LocalDate
     public static LocalDate toDate(String data) {
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return LocalDate.parse(data, formato);

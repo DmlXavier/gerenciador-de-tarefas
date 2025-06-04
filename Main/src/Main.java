@@ -9,17 +9,20 @@ public class Main {
         boolean filtro = false, loop_menu = true;
 
         do {
+            // Solicita o nome do usuário
             System.out.println("Bem-vindo! Qual é o seu nome?");
             String nome_usuario = input.nextLine();
 
             if (!nome_usuario.isBlank()) {
                 do {
+                    // Menu principal
                     String opcaoStr = Utilidades.imprimirMenuPrincipal(nome_usuario, lista_tarefas, filtro, input);
                     input.nextLine();
 
                     if (Utilidades.isInt(opcaoStr)) {
                         int opcao = Integer.parseInt(opcaoStr);
 
+                        // Cadastro de nova tarefa
                         if (opcao == 1) {
                             String titulo, descricao, dataStr;
                             boolean loop = true;
@@ -42,6 +45,7 @@ public class Main {
                                                     LocalDate data = Utilidades.toDate(dataStr);
                                                     Tarefa nova_tarefa = new Tarefa(titulo, descricao, data);
 
+                                                    // Valida se a data limite não é anterior à data de criação
                                                     if (nova_tarefa.verificarDataLimite(nova_tarefa.getData_limite())) {
                                                         System.out.println("Erro! Data limite não pode ser antes da data de criação.\n");
                                                     }
@@ -66,6 +70,7 @@ public class Main {
                             }
                         }
 
+                        // Edição de uma tarefa
                         else if (opcao == 2) {
                             if (!Tarefa.getListaTarefas().isEmpty()) {
                                 boolean loop = true;
@@ -92,12 +97,13 @@ public class Main {
                                                 if (Utilidades.isInt(opcao_edicaoStr)) {
                                                     int opcao_edicao = Integer.parseInt(opcao_edicaoStr);
 
+                                                    // Edita tarefa com base na opção selecionada
                                                     if (opcao_edicao > 0 && opcao_edicao < 5)  {
                                                         tarefa.editarTarefa(opcao_edicao, input);
                                                         loop = false;
                                                     }
                                                     else if (opcao_edicao == 5) {
-                                                        loop = false;
+                                                        loop = false; // Sai sem editar
                                                     }
                                                     else {
                                                         System.out.println("Comando inválido");
@@ -119,6 +125,7 @@ public class Main {
                             }
                         }
 
+                        // Excluir uma tarefa
                         else if (opcao == 3) {
                             if (!Tarefa.getListaTarefas().isEmpty()) {
                                 while (true) {
@@ -147,6 +154,7 @@ public class Main {
                             }
                         }
 
+                        // Ativar ou desativar filtro de tarefas
                         else if (opcao == 4) {
                             if (!filtro) {
                                 while (true) {
@@ -181,12 +189,14 @@ public class Main {
                                     }
                                 }
                             }
+                            //Remove Filtro
                             else {
                                 lista_tarefas = Tarefa.getListaTarefas();
                                 filtro = false;
                             }
                         }
 
+                        // Sai do programa
                         else if (opcao == 5) {
                             System.out.println();
                             System.out.println("Até mais!");

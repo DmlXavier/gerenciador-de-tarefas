@@ -3,14 +3,17 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Tarefa {
+    // Lista estática que armazena todas as tarefas criadas
     private static ArrayList<Tarefa> lista_tarefas = new ArrayList<>();
 
+    // Atributos de cada tarefa
     private String titulo;
     private String descricao;
     private LocalDate data_criacao;
     private LocalDate data_limite;
     private boolean status;
 
+    // Construtor da tarefa
     public Tarefa(String titulo, String descricao, LocalDate data_limite) {
         this.titulo = titulo;
         this.descricao = descricao;
@@ -19,10 +22,12 @@ public class Tarefa {
         this.status = false;
     }
 
+    // Retorna a lista de tarefas
     public static ArrayList<Tarefa> getListaTarefas() {
         return lista_tarefas;
     }
 
+    // Busca uma tarefa pelo título
     public static Tarefa encontrarTarefa(String titulo) {
         for (Tarefa tarefa : lista_tarefas) {
             if (tarefa.titulo.equalsIgnoreCase(titulo)) {
@@ -33,9 +38,11 @@ public class Tarefa {
         return null;
     }
 
+    // Filtra a lista de tarefas com base no critério escolhido
     public static ArrayList<Tarefa> filtrarListaTarefas(int atributo, Scanner input) {
         ArrayList<Tarefa> lista_filtrada = new ArrayList<>();
 
+        // Filtro por título
         if (atributo == 1) {
             while (true) {
                 System.out.println("Digite o título da tarefa:");
@@ -56,6 +63,7 @@ public class Tarefa {
             }
         }
 
+        // Filtro por descrição
         else if (atributo == 2) {
             while (true) {
                 System.out.println("Digite a descrição da tarefa:");
@@ -76,6 +84,7 @@ public class Tarefa {
             }
         }
 
+        // Filtro por data de criação ou data limite
         else if (atributo == 3 || atributo == 4) {
             while (true) {
                 System.out.println("Digite a data (dd/MM/yyyy)");
@@ -107,6 +116,7 @@ public class Tarefa {
             }
         }
 
+        // Filtro por status
         else if (atributo == 5) {
             while (true) {
                 System.out.println("Selecione o status:");
@@ -154,6 +164,7 @@ public class Tarefa {
         return lista_filtrada;
     }
 
+    // Métodos getters e setters para os atributos principais
     public String getTitulo() {
         return this.titulo;
     }
@@ -182,6 +193,7 @@ public class Tarefa {
         this.data_limite = data_limite;
     }
 
+    // Verifica se a data limite da instância é antes da data de criação
     public boolean verificarDataLimite(LocalDate data) {
         return data.isBefore(this.getData_criacao());
     }
@@ -194,6 +206,7 @@ public class Tarefa {
         this.status = novo_status;
     }
 
+    // Adiciona a tarefa à lista, caso ela ainda não exista
     public void cadastrarTarefa() {
         if (encontrarTarefa(this.titulo) == null) {
             lista_tarefas.add(this);
@@ -204,6 +217,7 @@ public class Tarefa {
         }
     }
 
+    // Remove a tarefa da lista
     public void excluirTarefa(Scanner input) {
         while (true) {
             System.out.println("Tem certeza que deseja alterar o título desta tarefa? (s/n)");
@@ -223,7 +237,9 @@ public class Tarefa {
         }
     }
 
+    // Permite editar tarefa
     public void editarTarefa(int atributo, Scanner input) {
+        // Editar título
         if (atributo == 1) {
             System.out.println("Digite o novo título:");
             String novo_titulo = input.nextLine();
@@ -251,6 +267,7 @@ public class Tarefa {
             }
         }
 
+        // Editar descrição
         else if (atributo == 2) {
             System.out.println("Digite a nova descrição:");
             String nova_descricao = input.nextLine();
@@ -278,6 +295,7 @@ public class Tarefa {
             }
         }
 
+        // Editar data limite
         else if (atributo == 3) {
             boolean loop = true;
 
@@ -316,6 +334,7 @@ public class Tarefa {
             }
         }
 
+        // Alterar status da tarefa
         else if (atributo == 4) {
             while (true) {
                 System.out.println("Tem certeza que deseja alterar o status desta tarefa? (s/n)");
