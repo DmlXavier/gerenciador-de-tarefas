@@ -163,15 +163,13 @@ public class Main {
                                         if (opcao_filtro > 0 && opcao_filtro < 6)  {
                                             lista_tarefas = Tarefa.filtrarListaTarefas(opcao_filtro, input);
 
-                                            if (lista_tarefas == null) {
-                                                break;
-                                            }
-                                            else {
+                                            if (!(lista_tarefas == null)) {
                                                 filtro = true;
                                                 break;
                                             }
                                         }
                                         else if (opcao_filtro == 6) {
+                                            lista_tarefas = Tarefa.getListaTarefas();
                                             break;
                                         }
                                         else {
