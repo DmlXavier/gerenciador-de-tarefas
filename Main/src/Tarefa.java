@@ -160,7 +160,6 @@ public class Tarefa {
 
         if (lista_filtrada.isEmpty()) {
             System.out.println("Não há tarefas que correspondam ao filtro.\n");
-            return null;
         }
 
         return lista_filtrada;

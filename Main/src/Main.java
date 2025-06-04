@@ -162,8 +162,15 @@ public class Main {
 
                                         if (opcao_filtro > 0 && opcao_filtro < 6)  {
                                             lista_tarefas = Tarefa.filtrarListaTarefas(opcao_filtro, input);
-                                            filtro = true;
-                                            break;
+
+                                            if (lista_tarefas == null) {
+                                                filtro = false;
+                                                break;
+                                            }
+                                            else {
+                                                filtro = true;
+                                                break;
+                                            }
                                         }
                                         else if (opcao_filtro == 6) {
                                             break;
@@ -178,7 +185,6 @@ public class Main {
                                 }
                             }
                             else {
-                                lista_tarefas = Tarefa.getListaTarefas();
                                 filtro = false;
                             }
                         }

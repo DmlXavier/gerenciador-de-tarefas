@@ -19,6 +19,9 @@ public class Utilidades {
             if (!filtro) {
                 System.out.println("Não há tarefas registradas.");
             }
+            else {
+                System.out.println("Nenhuma tarefa corresponde ao filtro.");
+            }
         }
 
         else {
