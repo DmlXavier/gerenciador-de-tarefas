@@ -6,4 +6,6 @@
 6. O programa pára se o filtro não encontrar as tarefas; CORRIGIDO
 7. O programa pára se o usuário digitar algo que não seja um número no menu principal e no menu de seleção de filtro; CORRIGIDO
 8. O programa pára se o usuário escolher voltar do filtro de status; CORRIGIDO
-9. O programa aplica um filtro mesmo se o usuário escolher voltar do menu de seleção de filtros CORRIGIDO
+9. O programa aplica um filtro mesmo se o usuário escolher voltar do menu de seleção de filtros CORRIGIDO;
+10. O programa retorna apenas o primeiro item correspondente quando é aplicado o filtro de descrição CORRIGIDO;
+11. O programa não atualiza a lista quando o filtro é limpado CORRIGIDO

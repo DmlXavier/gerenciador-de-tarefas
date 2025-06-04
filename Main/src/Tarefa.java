@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,19 +23,9 @@ public class Tarefa {
         return lista_tarefas;
     }
 
-    public static Tarefa encontrarTarefa_titulo(String titulo) {
+    public static Tarefa encontrarTarefa(String titulo) {
         for (Tarefa tarefa : lista_tarefas) {
             if (tarefa.titulo.equalsIgnoreCase(titulo)) {
-                return tarefa;
-            }
-        }
-
-        return null;
-    }
-
-    public static Tarefa encontrarTarefa_descricao(String descricao) {
-        for (Tarefa tarefa : lista_tarefas) {
-            if (tarefa.descricao.equalsIgnoreCase(descricao)) {
                 return tarefa;
             }
         }
@@ -53,7 +42,7 @@ public class Tarefa {
                 String titulo = input.nextLine();
 
                 if (!titulo.isBlank()) {
-                    Tarefa tarefa = encontrarTarefa_titulo(titulo);
+                    Tarefa tarefa = encontrarTarefa(titulo);
 
                     if (tarefa != null) {
                         lista_filtrada.add(tarefa);
@@ -73,10 +62,10 @@ public class Tarefa {
                 String descricao = input.nextLine();
 
                 if (!descricao.isBlank()) {
-                    Tarefa tarefa = encontrarTarefa_descricao(descricao);
-
-                    if (tarefa != null) {
-                        lista_filtrada.add(tarefa);
+                    for (Tarefa tarefa : lista_tarefas)  {
+                        if (tarefa.descricao.equalsIgnoreCase(descricao)) {
+                            lista_filtrada.add(tarefa);
+                        }
                     }
 
                     break;
@@ -206,7 +195,7 @@ public class Tarefa {
     }
 
     public void cadastrarTarefa() {
-        if (encontrarTarefa_titulo(this.titulo) == null) {
+        if (encontrarTarefa(this.titulo) == null) {
             lista_tarefas.add(this);
         }
         else {

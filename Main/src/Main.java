@@ -75,7 +75,7 @@ public class Main {
                                     String titulo = input.nextLine();
 
                                     if (!titulo.isBlank()) {
-                                        Tarefa tarefa = Tarefa.encontrarTarefa_titulo(titulo);
+                                        Tarefa tarefa = Tarefa.encontrarTarefa(titulo);
 
                                         if (tarefa == null) {
                                             System.out.println("Não há registro.");
@@ -126,7 +126,7 @@ public class Main {
                                     String titulo = input.nextLine();
 
                                     if (!titulo.isBlank()) {
-                                        Tarefa tarefa = Tarefa.encontrarTarefa_titulo(titulo);
+                                        Tarefa tarefa = Tarefa.encontrarTarefa(titulo);
 
                                         if (tarefa == null) {
                                             System.out.println("Não há registro da tarefa");
@@ -164,7 +164,6 @@ public class Main {
                                             lista_tarefas = Tarefa.filtrarListaTarefas(opcao_filtro, input);
 
                                             if (lista_tarefas == null) {
-                                                filtro = false;
                                                 break;
                                             }
                                             else {
@@ -185,6 +184,7 @@ public class Main {
                                 }
                             }
                             else {
+                                lista_tarefas = Tarefa.getListaTarefas();
                                 filtro = false;
                             }
                         }
