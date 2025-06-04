@@ -204,8 +204,23 @@ public class Tarefa {
         }
     }
 
-    public void excluirTarefa() {
-        lista_tarefas.remove(this);
+    public void excluirTarefa(Scanner input) {
+        while (true) {
+            System.out.println("Tem certeza que deseja alterar o título desta tarefa? (s/n)");
+            String confirmacao = input.next().toLowerCase();
+
+            if (confirmacao.equals("s")) {
+                lista_tarefas.remove(this);
+                break;
+            }
+            else if (confirmacao.equals("n")) {
+                break;
+            }
+            else {
+                System.out.println("Comando inválido");
+                break;
+            }
+        }
     }
 
     public void editarTarefa(int atributo, Scanner input) {

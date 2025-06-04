@@ -133,7 +133,7 @@ public class Main {
                                             break;
                                         }
                                         else {
-                                            tarefa.excluirTarefa();
+                                            tarefa.excluirTarefa(input);
                                             break;
                                         }
                                     }

@@ -2,7 +2,7 @@
 2. O programa aceita strings com apenas espaços em nome de usuário,título e descrição; CORRIGIDO
 3. O programa permite selecionar "modificar" e "excluir" mesmo com a lista vazia; CORRIGIDO
 4. O formato da data está errado; CORRIGIDO
-5. Confirmação de exclusão;
+5. Confirmação de exclusão; CORRIGIDO
 6. O programa pára se o filtro não encontrar as tarefas; CORRIGIDO
 7. O programa pára se o usuário digitar algo que não seja um número no menu principal e no menu de seleção de filtro; CORRIGIDO
 8. O programa pára se o usuário escolher voltar do filtro de status; CORRIGIDO
