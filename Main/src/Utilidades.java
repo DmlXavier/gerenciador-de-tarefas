@@ -6,11 +6,10 @@ import java.util.Scanner;
 
 public class Utilidades {
     public static String formatarData(LocalDate data) {
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        return data.format(formato);
+        return data.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
-    public static int imprimirMenuPrincipal(String nome_usuario, ArrayList<Tarefa> lista, boolean filtro, Scanner input) {
+    public static String imprimirMenuPrincipal(String nome_usuario, ArrayList<Tarefa> lista, boolean filtro, Scanner input) {
         System.out.println();
         System.out.println("MENU PRINCIPAL");
         System.out.println("Bem vindo, " + nome_usuario + "!");
@@ -57,10 +56,10 @@ public class Utilidades {
         System.out.println("======================================\n");
         System.out.println("Digite o número da opção escolhida:");
 
-        return input.nextInt();
+        return input.next();
     }
 
-    public static int imprimirMenuSelecao (Scanner input, String tipo) {
+    public static String imprimirMenuSelecao (Scanner input, String tipo) {
         System.out.println("[1] Título");
         System.out.println("[2] Descrição");
 
@@ -77,7 +76,7 @@ public class Utilidades {
         }
 
         System.out.println("Digite o número da opção escolhida:");
-        return input.nextInt();
+        return input.next();
     }
 
     public static boolean isDate(String data) {
